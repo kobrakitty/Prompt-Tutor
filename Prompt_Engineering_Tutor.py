@@ -8,7 +8,7 @@ api_key = os.getenv("OPENAI_API_KEY")  # Used in production - Uncomment this lin
 
 # Cell 2: Title & Description
 st.title('Prompt Engineering Friend:alien:')
-st.markdown('Hello! I was made to help you answer questions about prompt engineering to test your knowledge AND improve your prompts. This app demonstrates how to use OpenAI GPT-3.5 to answer prompt engineering questions in a deployed envionment.:notepad:Note: An example question has already been entered below for you to try out. Feel free to use that to test the model, or, enter your own question!:woman-raising-hand:Remember, always verify AI-generated responses.')
+st.markdown('Hello! I was made to help you answer questions about prompt engineering to test your knowledge AND improve your prompts. This app demonstrates how to use OpenAI GPT-3.5 to answer prompt engineering questions in a deployed envionment. :notepad: Note: An example question has already been entered below for you to try out. Feel free to use that to test the model, or, enter your own question! :woman-raising-hand: Remember, always verify AI-generated responses.')
 
 # Cell 3: Function to analyze text using OpenAI
 def analyze_text(text):
