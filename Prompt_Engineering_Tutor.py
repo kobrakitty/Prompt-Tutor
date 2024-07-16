@@ -7,7 +7,7 @@ import os
 api_key = os.getenv("OPENAI_API_KEY")  # Used in production - Uncomment this line when you deploy
 
 # Cell 2: Title & Description
-st.title(':spiral_note_pad:Prompt Engineering Interview Assistant:spiral_note_pad:')
+st.title('Prompt Engineering Tutor Friend:alien:')
 st.markdown('I was made to help you answer questions about prompt engineering to test your knowledge and improve your prompts. This app demonstrates how to use OpenAI GPT-3.5 to answer prompt engineering questions in a deployed envionment. Remember, always verify AI-generated responses.')
 
 # Cell 3: Function to analyze text using OpenAI
@@ -47,6 +47,6 @@ def analyze_text(text):
 user_input = st.text_area("Enter question to answer:", "What is one of the easiest prompt engineering technique to practice every time I use ChatGPT to get a helpful response? Tell me the name of it and give me an example.")
 
 if st.button('Answer Prompt Engineering Question'):
-  with st.spinner(':face_in_clouds:Thinking...:face_in_clouds:'):
+  with st.spinner('Thinking...:face_in_clouds:'):
       result = analyze_text(user_input)
       st.write(result)
