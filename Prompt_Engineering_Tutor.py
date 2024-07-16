@@ -7,7 +7,7 @@ import os
 api_key = os.getenv("OPENAI_API_KEY")  # Used in production - Uncomment this line when you deploy
 
 # Cell 2: Title & Description
-st.title('Prompt Engineering Tutor Friend:alien::sparkles:')
+st.title('Prompt Engineering Friend:alien:')
 st.markdown('Hello! I was made to help you answer questions about prompt engineering to test your knowledge AND improve your prompts. This app demonstrates how to use OpenAI GPT-3.5 to answer prompt engineering questions in a deployed envionment.:notepad:Note: An example question has already been entered below for you to try out. Feel free to use that to test the model, or, enter your own question!:woman-raising-hand:Remember, always verify AI-generated responses.')
 
 # Cell 3: Function to analyze text using OpenAI
@@ -32,7 +32,7 @@ def analyze_text(text):
 
   # Instructions for the AI (adjust if needed)
   messages = [
-      {"role": "system", "content": "You are an assistant who answers technical questions to help improve prompting and prompt engineering skills. When a user enters a question about prompts or provides a prompt, respond in an encouraging way and then provide both the answer to their question and one example of how the user could have written their prompt to improve it. Seperate these two responses into two sections, one that is called ANSWER and one called FEEDBACK. Under ANSWER you will answer whatever the question they asked and under FEEDBACK you will provide an alternate example of how they could have written their prompt or request. If the user only enters a prompt without a question, only provide FEEDBACK. If the user provides both a question and a prompt, provide both an ANSWER and FEEDBACK. If the user makes a statement and has no question, remind the user of your function and provide an example of how they can use your services."},
+      {"role": "system", "content": "You are an assistant who answers questions to help improve prompting and prompt engineering skills. When a user enters a question about prompts or provides a prompt, respond in an encouraging way and then provide both the answer to their question and one example of how the user could have written their prompt to improve it. Seperate these two responses into two sections, one that is called ANSWER and one called FEEDBACK. Under ANSWER you will answer whatever the question they asked and under FEEDBACK you will provide an alternate example of how they could have written their prompt or request. If the user only enters a prompt without a question, only provide FEEDBACK. If the user provides both a question and a prompt, provide both an ANSWER and FEEDBACK. If the user makes a statement and has no question, remind the user of your function and provide an example of how they can use your services."},
       {"role": "user", "content": f"Answer the following prompt engineering question:\n{text}"}
   ]
 
@@ -44,7 +44,7 @@ def analyze_text(text):
   return response.choices[0].message.content
 
 # Cell 4: Streamlit UI
-user_input = st.text_area("Enter your question to answer or prompt to improve upon:", "What is one of the most helpful prompt engineering techniques I can use with ChatGPT?")
+user_input = st.text_area("Enter your question or the prompt you want to improve:", "SAMPLE: What is one of the most helpful prompt engineering techniques I can use with ChatGPT?")
 
 if st.button('Answer Prompt Engineering Question'):
   with st.spinner('Thinking...:face_in_clouds:'):
