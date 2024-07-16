@@ -44,9 +44,9 @@ def analyze_text(text):
   return response.choices[0].message.content
 
 # Cell 4: Streamlit UI
-user_input = st.text_area("Enter your question or the prompt you want to improve:", "SAMPLE: What is one of the most helpful prompt engineering techniques I can use with ChatGPT?")
+user_input = st.text_area("Enter your question or the prompt you want to improve:", "What is one of the most helpful prompt engineering techniques I can use with ChatGPT?")
 
-if st.button('Submit Question/Prompt'):
+if st.button('SUBMIT! :sun_with_face: '):
   with st.spinner('Thinking...:face_in_clouds:'):
       result = analyze_text(user_input)
       st.write(result)
