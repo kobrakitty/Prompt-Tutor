@@ -1,7 +1,6 @@
 import streamlit as st
 from openai import OpenAI
 import os
-import json
 
 # Get your OpenAI API key from environment variables
 api_key = os.getenv("OPENAI_API_KEY")  # Used in production - Uncomment this line when you deploy
@@ -45,10 +44,13 @@ def analyze_text(text, conversation_history):
     )
     return response.choices[0].message.content
 
-# Function to extract conversation history
+# Function to extract conversation history as text
 def extract_conversation():
     conversation = st.session_state.conversation_history
-    return json.dumps(conversation, indent=2)
+    text_content = ""
+    for message in conversation:
+        text_content += f"{message['role'].capitalize()}: {message['content']}\n\n"
+    return text_content
 
 # Streamlit UI
 if 'conversation_history' not in st.session_state:
@@ -68,12 +70,12 @@ if col1.button('SUBMIT! :sun_with_face: '):
         st.session_state.conversation_history.append({"role": "assistant", "content": result})
 
 if col2.button('Extract Conversation'):
-    conversation_json = extract_conversation()
+    conversation_text = extract_conversation()
     st.download_button(
         label="Download Conversation",
-        data=conversation_json,
-        file_name="conversation_history.json",
-        mime="application/json"
+        data=conversation_text,
+        file_name="conversation_history.txt",
+        mime="text/plain"
     )
 
 # Display conversation history
